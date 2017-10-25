@@ -1,1 +1,23 @@
-<p>im a student </p>
+<p>Hello <%= @user.email %> </p>
+
+<table>
+<% @list.each do |user| %>
+  <tr>
+    <td>
+      <%= user.email %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+<h1> Algorithm </h1>
+<table>
+<% @match.each do |user| %>
+  <tr>
+    <td>
+      <%= user.email %>
+    </td>
+  </tr>
+<% end %>
+</table>
