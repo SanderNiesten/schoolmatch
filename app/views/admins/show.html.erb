@@ -1,1 +1,19 @@
 <p>I'm just one admin!</p>
+
+<h3> See list of students </h3>
+
+<table>
+<% @users.each do |user| %>
+  <tr>
+    <td>
+      <%= user.email %>
+    </td>
+    <td>
+      <%= user.admin %>
+    </td>
+    <td>
+    <%= button_to "Make Admin", "#{user.id}", {:method => 'put',  :action => 'make_admin'} %>
+    </td>
+  </tr>
+<% end %>
+</table>
