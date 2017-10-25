@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   resources :admins
   put 'admins/:id/make_admin' => 'users#make_admin'
-  put 'admins/:id/revoke_admin' => 'users#revoke_admin'
   #calls upon user id - to make it an admin
 
   resources :students
