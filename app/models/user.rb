@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   def self.match
     @studentsmatch = User.all.where(admin: false)
-    @studentsmatch = @studentsmatch.pluck(:email)
+    @studentsmatch = @studentsmatch.pluck(:id, :email)
   end
 
 end
