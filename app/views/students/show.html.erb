@@ -1,7 +1,7 @@
 <p>Hello <%= @user.email %> </p>
 
 <table>
-<% @list.each do |user| %>
+<% @students.each do |user| %>
   <tr>
     <td>
       <%= user.email %>
@@ -11,13 +11,8 @@
 </table>
 
 <br>
-<h1> Algorithm </h1>
-<table>
-<% @match.each do |user| %>
-  <tr>
-    <td>
-      <%= user.email %>
-    </td>
-  </tr>
+
+<% @studentsmatch.length.times do |index| %>
+<% index = index + 1 %>
+<p> <%= "day #{index.to_s} #{@student} matches with #{@studentsmatch.first}" %> </p>
 <% end %>
-</table>
