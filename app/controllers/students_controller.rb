@@ -1,20 +1,13 @@
 class StudentsController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
+    @student = User.find(params[:id])
+    @students = User.all
 
-    @list = User.all.where(admin: false)
+    @studentsmatch = User.match
+    @student1 = @studentsmatch.shift
+    @studentsmatch = @studentsmatch.shuffle
 
-    # @students = User.all.where(admin: false)
-    # @student = @students.email.shift
-    # @students.shuffle!
-    #
-    # @students.length.times do |index_number|
-    # puts "day #{index_number + 1} #{student} matches with #{students.first}"
-    # @students.rotate!
-    # end
   end
-
-
 
 end

@@ -3,4 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def self.match
+    @studentsmatch = User.all.where(admin: false)
+    @studentsmatch = @studentsmatch.pluck(:id, :email)
+  end
+
 end
