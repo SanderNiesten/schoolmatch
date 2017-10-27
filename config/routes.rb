@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'admins#index'
 
   resources :admins
   put 'admins/:id/make_admin' => 'users#make_admin'

@@ -1,8 +1,27 @@
-<p>Hello <%= @student.email %> </p>
+<div class="container">
+<h4>Hello <%= @student.name %>, </h4>
+<br>
+<p> <strong> See your match of the day: </strong> </p>
 
-
-
-<% @studentsmatch.length.times do |index| %>
+<table class="table table-hover">
+  <thead class="thead-default">
+    <tr>
+      <th></th>
+      <th>Day</th>
+      <th>You</th>
+      <th>Match</th>
+    </tr>
+  </thead>
+<% @match.length.times do |index| %>
 <% index = index + 1 %>
-<p> <%= "day #{index.to_s} #{@student1} matches with #{@studentsmatch.first}" %> </p>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td> <%= index.to_s %></td>
+      <td> <%= @student1 %> </td>
+      <td> <%= @match.shuffle.first %> </td>
+    </tr>
 <% end %>
+  </tbody>
+</table>
+</div>

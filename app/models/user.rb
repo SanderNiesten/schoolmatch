@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   def self.match
-    @studentsmatch = User.all.where(admin: false)
-    @studentsmatch = @studentsmatch.pluck(:id, :email)
+    @match = User.where(admin: false)
+    @match = @match.pluck(:name)
   end
 
 end

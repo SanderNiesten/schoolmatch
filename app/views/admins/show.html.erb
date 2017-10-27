@@ -1,19 +1,60 @@
-<p>I'm just one admin!</p>
+<div class="container">
+  <h5> <%= @user.admin ? "Status: Admin" : "Status: Admin" %> </h5>
 
-<h3> See list of students </h3>
+  <br>
 
-<table>
-<% @users.each do |user| %>
-  <tr>
-    <td>
-      <%= user.email %>
-    </td>
-    <td>
-      <%= user.admin %>
-    </td>
-    <td>
-    <%= button_to "Make Admin", "#{user.id}", {:method => 'put',  :action => 'make_admin'} %>
-    </td>
-  </tr>
-<% end %>
-</table>
+  <h4>Hello <%= @user.name %>, </h4>
+
+  <br>
+
+  <h4> Manage users  </h4>
+
+</div>
+
+
+<div class="container">
+
+
+    <table class="table table-hover">
+      <thead class="thead-default">
+        <tr>
+          <th>Name user</th>
+          <th>User role</th>
+          <th>Promote / Demote User</th>
+        </tr>
+      </thead>
+    <% @users.each do |user| %>
+      <tbody>
+        <tr>
+          <td> <%= user.name %></td>
+          <td> <%= user.admin ? "Admin" : "Student" %></td>
+          <td> <%= button_to user.admin ? "Demote" : "Promote" , "#{user.id}", {:method => 'put',  :action => 'make_admin', class: "btn btn-info"}%> </td>
+        </tr>
+    <% end %>
+      </tbody>
+    </table>
+
+
+<h4> See matches of the day: </h4>
+
+    <table class="table table-hover">
+      <thead class="thead-default">
+        <tr>
+          <th>Day</th>
+          <th>Student</th>
+          <th>Student</th>
+        </tr>
+      </thead>
+    <% @match.length.times do |index| %>
+    <% index = index + 1 %>
+      <tbody>
+        <tr>
+          <td> <%= index.to_s %></td>
+          <td> <%= @match.shuffle.second %> </td>
+          <td> <%= @match.shuffle.first %> </td>
+        </tr>
+    <% end %>
+      </tbody>
+    </table>
+
+</div>
